@@ -9,15 +9,9 @@
  		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
  		http://www.springframework.org/schema/util
  		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
-    <import resource="dao.xml"/>
-    <import resource="services.xml"/>
-    <import resource="discount.xml"/>
 
-    <bean id="mainApp" class="MainApp"/>
-    <bean id="user" class="Domain.User" scope="prototype"/>
-    <bean id="event" class="Domain.Event" scope="prototype"/>
-    <bean id="auditorium" class="Domain.Auditorium" scope="prototype"/>
-    <bean id="ticket" class="Domain.Ticket" scope="prototype"/>
-
+    <bean id="discountStrategy" class="Service.ServiseUtils.DiscountStrategy">
+        <property name="birthdayDiscount" value= "5"/>
+        <property name="everyTenDiscount" value="50"/>
+    </bean>
 </beans>
-

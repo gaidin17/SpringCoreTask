@@ -1,22 +1,66 @@
 package Service;
 
-import DAO.Auditorium;
-import DAO.Event;
-import UTIL.Rating;
 
+import DAO.Interfaces.EventDAO;
+import Domain.Auditorium;
+import Domain.Event;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by Evgeny_Akulenko on 6/17/2016.
  */
-public class EventService {
-    public Event create(String name, Rating rating, Date date, double price){return null;}
-    public void remove() {}
-    public Event getByName(String name){return null;}
-    public List<Event> getAll(){return null;}
-    public List<Event> getForDateRange(Date dateFrom, Date dateTo){return null;}
-    public List<Event> getNextEvents(Date dateTo){return null;}
-    public void assignAuditorium(Event event, Auditorium auditorium, Date date){}
 
+public class EventService {
+    private EventDAO eventDao;
+
+    public void create(Event event) {
+
+        eventDao.create(event);
+    }
+
+    public void remove(Event event) {
+
+        eventDao.remove(event);
+    }
+
+    public Event getByName(String name) {
+        List<Event> events = getAll();
+        for (Event event : events) {
+            if (event.getName().equals(name)) {
+                return event;
+            }
+        }
+        return null;
+    }
+
+    public List<Event> getAll() {
+        return eventDao.getAll();
+    }
+
+    public List<Event> getForDateRange(Date dateFrom, Date dateTo) {
+        //TODO
+        //OPTIONAL
+        return null;
+    }
+
+    public List<Event> getNextEvents(Date dateTo) {
+        //TODO
+        //OPTIONAL
+        return null;
+    }
+
+    public void assignAuditorium(Event event, Auditorium auditorium, LocalDate date, LocalTime time) {
+        if (eventDao.getAll().contains(event)) {
+            event.setAuditorium(auditorium);
+            event.setDate(date);
+            event.setTime(time);
+        }
+    }
 }
+
+
+

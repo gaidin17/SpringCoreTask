@@ -1,7 +1,8 @@
 package Service;
 
-import DAO.Ticket;
-import DAO.User;
+import DAO.Interfaces.UserDAO;
+import Domain.Ticket;
+import Domain.User;
 
 import java.util.List;
 
@@ -9,10 +10,33 @@ import java.util.List;
  * Created by Evgeny_Akulenko on 6/17/2016.
  */
 public class UserService {
-    public void register(){}
-    public void remove(){}
-    public User getById(int id){return null;}
-    public User getUserByEmail(String Email){return null;}
-    public User getUsersByName(String name){return null;}
-    public List<Ticket> getBookedTickets(User user) {return null;}
+    private UserDAO userDao;
+
+    public void register(User user) {
+        userDao.create(user);
+    }
+
+    public void remove(User user) {
+        userDao.remove(user);
+    }
+
+    public User getById(int id) {
+        return userDao.getById(id);
+    }
+
+    public List<User> getAll() {
+        return userDao.getAll();
+    }
+
+    public User getUserByEmail(String email) {
+        return userDao.getByEmail(email);
+    }
+
+    public List<User> getUsersByName(String name) {
+        return userDao.getByName(name);
+    }
+
+    public List<Ticket> getBookedTickets(User user) {
+        return user.getTickets();
+    }
 }

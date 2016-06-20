@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="
+ 		http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+ 		http://www.springframework.org/schema/util
+ 		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+    <bean id = "auditoriumService" class="Service.AuditoriumService">
+        <property name ="auditoriumDao" value="auditoriumDao"/>
+    </bean>
+
+    <bean id="bookingService" class="Service.BookingService">
+        <property name ="discountService" value="discountService"/>
+        <property name ="userService" value="userService"/>
+        <property name ="eventService" value="eventService"/>
+    </bean>
+
+    <bean id="discountService" class="Service.DiscountService">
+        <property name ="discountStrategy" value="discountStrategy"/>
+    </bean>
+
+    <bean id="EventService" class="Service.EventService">
+        <property name ="eventDao" value="eventDao"/>
+    </bean>
+
+    <bean id="userService" class="Service.UserService">
+        <property name ="userDao" value="userDao"/>
+    </bean>
+
+</beans>
