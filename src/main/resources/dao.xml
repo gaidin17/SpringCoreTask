@@ -10,7 +10,37 @@
  		http://www.springframework.org/schema/util
  		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
-    <bean id="userDao" class="DAO.Impl.UserDaoImpl"/>
-    <bean id="eventDao" class="DAO.Impl.EventDaoImpl"/>
-    <bean id="auditoriumDao" class="DAO.Impl.AuditoriumDaoImpl"/>
+    <bean id="userDao" class="DAO.Impl.UserDaoImpl">
+        <constructor-arg>
+            <list>
+                <ref bean="user1"/>
+                <ref bean="user2"/>
+                <ref bean="user3"/>
+                <ref bean="user4"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="eventDao" class="DAO.Impl.EventDaoImpl">
+        <constructor-arg>
+            <list>
+                <ref bean="event1"/>
+                <ref bean="event2"/>
+                <ref bean="event3"/>
+                <ref bean="event4"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="auditoriumDao" class="DAO.Impl.AuditoriumDaoImpl">
+        <constructor-arg>
+            <list>
+                <ref bean="auditorium1"/>
+                <ref bean="auditorium2"/>
+                <ref bean="auditorium3"/>
+                <ref bean="auditorium4"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
 </beans>

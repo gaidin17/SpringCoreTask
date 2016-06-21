@@ -10,6 +10,10 @@ import java.util.List;
  * Created by Evgeny_Akulenko on 6/17/2016.
  */
 public class UserService {
+    public void setUserDao(UserDAO userDao) {
+        this.userDao = userDao;
+    }
+
     private UserDAO userDao;
 
     public void register(User user) {

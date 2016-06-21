@@ -15,6 +15,10 @@ public class DiscountService {
     private static final Logger logger = LoggerFactory.getLogger(DiscountService.class);
     private DiscountStrategy discountStrategy;
 
+    public void setDiscountStrategy(DiscountStrategy discountStrategy) {
+        this.discountStrategy = discountStrategy;
+    }
+
     public Double getDiscount(User user, Event event, LocalDate date) {
         if (user != null && event != null && date != null) {
             double basePrice = event.getBasePrice();

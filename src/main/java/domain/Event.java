@@ -4,14 +4,14 @@ import Domain.Enums.Rating;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
-
 
 /**
  * Created by Evgeny_Akulenko on 6/20/2016.
  */
 public class Event {
-    private static int id;
+    private static int id = 0;
 
     private String name;
 
@@ -29,6 +29,10 @@ public class Event {
 
     public List<Ticket> getTickets() {
         return tickets;
+    }
+
+    public Ticket getTicketById(int id) {
+        return getTickets().get(id);
     }
 
     public Integer getId() {
@@ -83,15 +87,39 @@ public class Event {
         this.auditorium = auditorium;
     }
 
-    public Event(String name, String date, String time, Double basePrice, List<Ticket> tickets, Rating rating, Auditorium auditorium) {
+    private List<Ticket> createTickets() {
+        List<Ticket> tickets = new ArrayList<Ticket>();
+        for (int i = 0; i < auditorium.getNumberOfSeats(); i++) {
+            tickets.add(new Ticket(id, i));
+        }
+        return tickets;
+    }
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("ID: ").append(id).append("\n");
+        builder.append("Name: ").append(name).append("\n");
+        builder.append("Date, Time: ").append(date).append(", ").append(time).append("\n");
+        builder.append("Base price: ").append(basePrice).append("\n");
+        ;
+        builder.append("Rating: ").append(rating).append("\n");
+        ;
+        builder.append("Number of Tickets: ").append(tickets.size()).append("\n");
+        ;
+        builder.append("Auditorium: ").append(auditorium.getName()).append("\n");
+        ;
+        return builder.toString();
+    }
+
+    public Event(String name, String date, String time, Double basePrice, Rating rating, Auditorium auditorium) {
         id = id++;
         this.name = name;
         this.date = LocalDate.parse(date);
         this.time = LocalTime.parse(time);
-        this.tickets = tickets;
         this.basePrice = basePrice;
         this.rating = rating;
         this.auditorium = auditorium;
+        this.tickets = createTickets();
     }
 }

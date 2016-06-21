@@ -44,7 +44,7 @@ public class UserDaoImpl implements UserDAO {
     public User getByEmail(String email) {
         for (User user : users) {
             if (user.getName().equals(email)) {
-               return user;
+                return user;
             }
         }
         return null;
@@ -60,14 +60,6 @@ public class UserDaoImpl implements UserDAO {
 
     public void remove(User user) {
         users.remove(user);
-    }
-
-    public void update(User user) {
-        for (User u : users) {
-            if (u.getId() == user.getId()) {
-                u = user;
-            }
-        }
     }
 }
 

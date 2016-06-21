@@ -12,10 +12,15 @@ import java.util.List;
  */
 public class AuditoriumService {
     private static final Logger logger = LoggerFactory.getLogger(AuditoriumService.class);
-    private AuditoriumDAO auditoriumDAO;
+
+    private AuditoriumDAO auditoriumDao;
+
+    public void setAuditoriumDao(AuditoriumDAO auditoriumDao) {
+        this.auditoriumDao = auditoriumDao;
+    }
 
     public List<Auditorium> getAuditoriums() {
-        return auditoriumDAO.getAll();
+        return auditoriumDao.getAll();
     }
 
     public int getSeatsNumber(Auditorium auditorium) {

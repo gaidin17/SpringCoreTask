@@ -20,7 +20,7 @@ public class EventDaoImpl implements EventDAO {
     }
 
     public Event getById(int id) {
-        for (Event event: events) {
+        for (Event event : events) {
             if (event.getId() == id) {
                 return event;
             }
@@ -34,13 +34,5 @@ public class EventDaoImpl implements EventDAO {
 
     public void remove(Event event) {
         events.remove(event);
-    }
-
-    public void update(Event event) {
-        for (Event e: events) {
-            if (e.getId() == event.getId()) {
-                e = event;
-            }
-        }
     }
 }

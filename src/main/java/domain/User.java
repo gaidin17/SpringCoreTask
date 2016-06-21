@@ -1,6 +1,7 @@
 package Domain;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,10 +19,29 @@ public class User {
         this.name = name;
         this.email = email;
         this.birthDate = LocalDate.parse(birthDate);
+        this.tickets = new ArrayList<Ticket>();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("ID: ").append(id).append("\n");
+        builder.append("Name: ").append(name).append("\n");
+        builder.append("Email: ").append(email).append("\n");
+        builder.append("Birthdate: ").append(birthDate).append("\n");
+        builder.append("Ticket. seats:");
+        for (Ticket ticket : tickets) {
+            builder.append("").append(ticket.getSeat()).append(",");
+        }
+        return builder.toString();
     }
 
     public LocalDate getBirthDate() {
         return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
     public int getId() {

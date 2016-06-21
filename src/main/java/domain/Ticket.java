@@ -14,7 +14,7 @@ public class Ticket {
 
     private boolean isBooked = false;
 
-    public Ticket(int eventId, int seat) {
+    Ticket(int eventId, int seat) {
         id = id++;
         this.eventId = eventId;
         this.seat = seat;

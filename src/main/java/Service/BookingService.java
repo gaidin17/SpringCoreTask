@@ -5,10 +5,8 @@ import Domain.Ticket;
 import Domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,10 +16,22 @@ import java.util.List;
 public class BookingService {
     private static final Logger logger = LoggerFactory.getLogger(BookingService.class);
     private DiscountService discountService;
-    private UserService userService;
     private EventService eventService;
+    private UserService userService;
 
-    public double getTicketPrice(Event event, LocalDate date, LocalTime time, List<Integer> seats, User user) {
+    public void setEventService(EventService eventService) {
+        this.eventService = eventService;
+    }
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+    public void setDiscountService(DiscountService discountService) {
+        this.discountService = discountService;
+    }
+
+    public double getTicketPrice(Event event, LocalDate date, List<Integer> seats, User user) {
         double discount = discountService.getDiscount(user, event, date);
         double modificatorForVip = event.getAuditorium().getModificatorForVip();
         List<Integer> vipSeats = event.getAuditorium().getVipSeats();
@@ -42,6 +52,9 @@ public class BookingService {
                 ticket.setBooked(true);
                 ticket.setUserId(user.getId());
                 user.addTicket(ticket);
+                logger.info("Ticket is booked");
+            } else {
+                logger.warn("Warning: Ticket is allready booked");
             }
         } else {
             logger.warn("Warning: User is not registered");

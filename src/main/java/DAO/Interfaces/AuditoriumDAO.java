@@ -9,15 +9,13 @@ import java.util.List;
  */
 public interface AuditoriumDAO {
 
-        Auditorium getById(int id);
+    Auditorium getById(int id);
 
-        void create(Auditorium auditorium);
+    void create(Auditorium auditorium);
 
-        void remove(Auditorium auditorium);
+    void remove(Auditorium auditorium);
 
-        void update(Auditorium auditorium);
+    Auditorium getByName(String name);
 
-        Auditorium getByName(String name);
-
-        List<Auditorium> getAll();
+    List<Auditorium> getAll();
 }

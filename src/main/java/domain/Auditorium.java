@@ -1,24 +1,41 @@
 package Domain;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Evgeny_Akulenko on 6/20/2016.
  */
 public class Auditorium {
+    private static final Logger logger = LoggerFactory.getLogger(Auditorium.class);
     private static int id = 0;
     private String name;
     private int numberOfSeats;
     private double modificatorForVip;
     private List<Integer> vipSeats;
 
-
-    public Auditorium(String name, int numberOfSeats, double modificatorForVip, List<Integer> vipSeats) {
+    public Auditorium(String name, int numberOfSeats, double modificatorForVip, String vipSeats) {
         id = id++;
         this.name = name;
         this.numberOfSeats = numberOfSeats;
         this.modificatorForVip = modificatorForVip;
-        this.vipSeats = vipSeats;
+        this.vipSeats = createVipSeatsList(vipSeats);
+    }
+
+    private List<Integer> createVipSeatsList(String string) {
+        String[] stringSeats = string.split(",");
+        List<Integer> list = new ArrayList<Integer>();
+        for (String s : stringSeats) {
+            try {
+                list.add(Integer.parseInt(s));
+            } catch (NumberFormatException ex) {
+                logger.error("wrong @param: ", ex);
+            }
+        }
+        return list;
     }
 
     public int getId() {
@@ -26,7 +43,7 @@ public class Auditorium {
     }
 
     public Double getModificatorForVip() {
-        return  this.modificatorForVip;
+        return this.modificatorForVip;
     }
 
     public String getName() {
@@ -51,5 +68,18 @@ public class Auditorium {
 
     public void setNumberOfSeats(int numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("ID: ").append(id).append("\n");
+        builder.append("Name: ").append(name).append("\n");
+        builder.append("Number of seats: ").append(numberOfSeats).append("\n");
+        builder.append("Vip seats:");
+        for (Integer i : vipSeats) {
+            builder.append("").append(i).append(",");
+        }
+        return builder.toString();
     }
 }

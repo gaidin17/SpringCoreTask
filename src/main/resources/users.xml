@@ -6,21 +6,10 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:c="http://www.springframework.org/schema/c">
 
-    <bean id="userDaoImpl" class="DAO.Impl.UserDaoImpl">
-        <constructor-arg>
-            <list>
-                <ref bean="user1" />
-                <ref bean="user2" />
-                <ref bean="user3" />
-                <ref bean="user4" />
-            </list>
-        </constructor-arg>
-    </bean>
-
-    <bean id="user1" class="Domain.User">
+      <bean id="user1" class="Domain.User">
         <constructor-arg type="java.lang.String" value="Mike"/>
         <constructor-arg type="java.lang.String" value="Mike@gmail.com"/>
-        <constructor-arg type="java.lang.String" value="1980-10-5" />
+        <constructor-arg type="java.lang.String" value="1980-10-05" />
     </bean>
     <bean id="user2" class="Domain.User">
         <constructor-arg type="java.lang.String" value="Donnie"/>

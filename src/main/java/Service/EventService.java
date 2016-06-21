@@ -15,6 +15,10 @@ import java.util.List;
  */
 
 public class EventService {
+    public void setEventDao(EventDAO eventDao) {
+        this.eventDao = eventDao;
+    }
+
     private EventDAO eventDao;
 
     public void create(Event event) {
@@ -54,13 +58,15 @@ public class EventService {
     }
 
     public void assignAuditorium(Event event, Auditorium auditorium, LocalDate date, LocalTime time) {
-        if (eventDao.getAll().contains(event)) {
-            event.setAuditorium(auditorium);
-            event.setDate(date);
-            event.setTime(time);
+        if (!eventDao.getAll().contains(event)) {
+            eventDao.create(event);
         }
+        event.setAuditorium(auditorium);
+        event.setDate(date);
+        event.setTime(time);
     }
 }
+
 
 
 

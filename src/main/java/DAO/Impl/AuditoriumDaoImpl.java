@@ -32,27 +32,15 @@ public class AuditoriumDaoImpl implements AuditoriumDAO {
         if (auditorium != null) {
             auditoriums.add(auditorium);
         } else {
-         logger.warn("Warning: @param is null");
+            logger.warn("Warning: @param is null");
         }
     }
 
     public void remove(Auditorium auditorium) {
-        if (auditorium != null || !auditoriums.contains(auditorium)) {
+        if (auditoriums.contains(auditorium) && auditorium != null) {
             auditoriums.remove(auditorium);
         } else {
             logger.warn("Warning: @param is null or not contains in list");
-        }
-    }
-
-    public void update(Auditorium auditorium) {
-        if (auditorium != null) {
-            for (Auditorium a : auditoriums) {
-                if (a.getId() == auditorium.getId()) {
-                    a = auditorium;
-                }
-            }
-        } else {
-            logger.warn("Warning: @param is null");
         }
     }
 

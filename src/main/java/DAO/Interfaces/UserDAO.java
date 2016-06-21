@@ -22,6 +22,4 @@ public interface UserDAO {
     void create(User user);
 
     void remove(User user);
-
-    void update(User user);
 }

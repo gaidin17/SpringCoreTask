@@ -9,8 +9,26 @@ import org.slf4j.LoggerFactory;
  */
 public class DiscountStrategy {
     private static final Logger logger = LoggerFactory.getLogger(DiscountStrategy.class);
-    private static int birthdayDiscount;
-    private static int everyTenDiscount;
+
+    public int getBirthdayDiscount() {
+        return birthdayDiscount;
+    }
+
+    public void setBirthdayDiscount(int birthdayDiscount) {
+        this.birthdayDiscount = birthdayDiscount;
+    }
+
+    public int getEveryTenDiscount() {
+        return everyTenDiscount;
+    }
+
+    public void setEveryTenDiscount(int everyTenDiscount) {
+        this.everyTenDiscount = everyTenDiscount;
+    }
+
+    private int birthdayDiscount;
+    private int everyTenDiscount;
+
 
     public Double getBirthdayDiscount(Event event) {
         if (event != null) {
