@@ -1,6 +1,6 @@
-package DAO.Interfaces;
+package dao.interfaces;
 
-import Domain.User;
+import domain.User;
 
 import java.util.List;
 

@@ -1,9 +1,7 @@
-package Service;
+package service;
 
-import DAO.Interfaces.AuditoriumDAO;
-import Domain.Auditorium;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import dao.interfaces.AuditoriumDAO;
+import domain.Auditorium;
 
 import java.util.List;
 
@@ -11,7 +9,6 @@ import java.util.List;
  * Created by Evgeny_Akulenko on 6/17/2016.
  */
 public class AuditoriumService {
-    private static final Logger logger = LoggerFactory.getLogger(AuditoriumService.class);
 
     private AuditoriumDAO auditoriumDao;
 

@@ -1,8 +1,10 @@
-import Domain.Auditorium;
-import Domain.Event;
-import Domain.Ticket;
-import Domain.User;
-import Service.*;
+package main;
+
+import domain.Auditorium;
+import domain.Event;
+import domain.Ticket;
+import domain.User;
+import service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -16,6 +18,10 @@ import java.util.List;
  */
 public class MainApp {
     private static final Logger logger = LoggerFactory.getLogger(MainApp.class);
+    private AuditoriumService auditoriumService;
+    private BookingService bookingService;
+    private EventService eventService;
+    private UserService userService;
 
     public void setAuditoriumService(AuditoriumService auditoriumService) {
         this.auditoriumService = auditoriumService;
@@ -25,10 +31,6 @@ public class MainApp {
         this.bookingService = bookingService;
     }
 
-    public void setDiscountService(DiscountService discountService) {
-        this.discountService = discountService;
-    }
-
     public void setEventService(EventService eventService) {
         this.eventService = eventService;
     }
@@ -36,12 +38,6 @@ public class MainApp {
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
-
-    private AuditoriumService auditoriumService;
-    private BookingService bookingService;
-    private DiscountService discountService;
-    private EventService eventService;
-    private UserService userService;
 
     public static void main(String[] args) {
         ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
@@ -94,12 +90,10 @@ public class MainApp {
         return userService.getUsersByName(userName);
     }
 
-
     private void showTicketPrices(Event event, User user, List<Integer> seats) {
         double price = bookingService.getTicketPrice(event, event.getDate(), seats, user);
         logger.info("Price for ticket: {}", price);
     }
-
 
     private void bookTickets(User user, List<Ticket> tickets) {
         for (Ticket ticket : tickets) {

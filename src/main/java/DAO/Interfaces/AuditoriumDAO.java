@@ -1,6 +1,6 @@
-package DAO.Interfaces;
+package dao.interfaces;
 
-import Domain.Auditorium;
+import domain.Auditorium;
 
 import java.util.List;
 

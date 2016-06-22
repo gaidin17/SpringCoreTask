@@ -1,8 +1,8 @@
-package Service;
+package service;
 
-import Domain.Event;
-import Domain.Ticket;
-import Domain.User;
+import domain.Event;
+import domain.Ticket;
+import domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -63,7 +63,7 @@ public class BookingService {
 
     public List<Ticket> getTicketsForEvent(Event event) {
         List<Event> events = eventService.getAll();
-        List<Ticket> bookedTickets = new ArrayList<Ticket>();
+        List<Ticket> bookedTickets = new ArrayList<>();
         if (events.contains(event)) {
             List<Ticket> tickets = event.getTickets();
             for (Ticket ticket : tickets) {
@@ -73,7 +73,6 @@ public class BookingService {
             }
         } else {
             logger.warn("Warning: event not found");
-            return null;
         }
         return bookedTickets;
     }

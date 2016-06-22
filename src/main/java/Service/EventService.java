@@ -1,9 +1,9 @@
-package Service;
+package service;
 
 
-import DAO.Interfaces.EventDAO;
-import Domain.Auditorium;
-import Domain.Event;
+import dao.interfaces.EventDAO;
+import domain.Auditorium;
+import domain.Event;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -15,11 +15,11 @@ import java.util.List;
  */
 
 public class EventService {
+    private EventDAO eventDao;
+
     public void setEventDao(EventDAO eventDao) {
         this.eventDao = eventDao;
     }
-
-    private EventDAO eventDao;
 
     public void create(Event event) {
 

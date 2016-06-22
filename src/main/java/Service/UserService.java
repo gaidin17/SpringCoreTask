@@ -1,8 +1,8 @@
-package Service;
+package service;
 
-import DAO.Interfaces.UserDAO;
-import Domain.Ticket;
-import Domain.User;
+import dao.interfaces.UserDAO;
+import domain.Ticket;
+import domain.User;
 
 import java.util.List;
 
@@ -10,11 +10,11 @@ import java.util.List;
  * Created by Evgeny_Akulenko on 6/17/2016.
  */
 public class UserService {
+    private UserDAO userDao;
+
     public void setUserDao(UserDAO userDao) {
         this.userDao = userDao;
     }
-
-    private UserDAO userDao;
 
     public void register(User user) {
         userDao.create(user);

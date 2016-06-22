@@ -1,6 +1,6 @@
-package Service.ServiseUtils;
+package service.utils;
 
-import Domain.Event;
+import domain.Event;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
  */
 public class DiscountStrategy {
     private static final Logger logger = LoggerFactory.getLogger(DiscountStrategy.class);
+    private int birthdayDiscount;
+    private int everyTenDiscount;
 
     public int getBirthdayDiscount() {
         return birthdayDiscount;
@@ -25,10 +27,6 @@ public class DiscountStrategy {
     public void setEveryTenDiscount(int everyTenDiscount) {
         this.everyTenDiscount = everyTenDiscount;
     }
-
-    private int birthdayDiscount;
-    private int everyTenDiscount;
-
 
     public Double getBirthdayDiscount(Event event) {
         if (event != null) {

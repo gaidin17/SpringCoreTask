@@ -1,4 +1,4 @@
-package Domain;
+package domain;
 
 /**
  * Created by Evgeny_Akulenko on 6/20/2016.
@@ -15,7 +15,7 @@ public class Ticket {
     private boolean isBooked = false;
 
     Ticket(int eventId, int seat) {
-        id = id++;
+        id++;
         this.eventId = eventId;
         this.seat = seat;
     }

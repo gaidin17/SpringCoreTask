@@ -1,4 +1,4 @@
-package Domain.Enums;
+package domain.enums;
 
 /**
  * Created by Evgeny_Akulenko on 6/17/2016.

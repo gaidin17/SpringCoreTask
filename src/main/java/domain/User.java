@@ -1,4 +1,4 @@
-package Domain;
+package domain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -20,20 +20,6 @@ public class User {
         this.email = email;
         this.birthDate = LocalDate.parse(birthDate);
         this.tickets = new ArrayList<Ticket>();
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("ID: ").append(id).append("\n");
-        builder.append("Name: ").append(name).append("\n");
-        builder.append("Email: ").append(email).append("\n");
-        builder.append("Birthdate: ").append(birthDate).append("\n");
-        builder.append("Ticket. seats:");
-        for (Ticket ticket : tickets) {
-            builder.append("").append(ticket.getSeat()).append(",");
-        }
-        return builder.toString();
     }
 
     public LocalDate getBirthDate() {
@@ -75,5 +61,20 @@ public class User {
     public void addTicket(Ticket ticket) {
         this.tickets.add(ticket);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("ID: ").append(id).append("\n");
+        builder.append("Name: ").append(name).append("\n");
+        builder.append("Email: ").append(email).append("\n");
+        builder.append("Birthdate: ").append(birthDate).append("\n");
+        builder.append("Ticket. seats:");
+        for (Ticket ticket : tickets) {
+            builder.append("").append(ticket.getSeat()).append(",");
+        }
+        return builder.toString();
+    }
+
 
 }

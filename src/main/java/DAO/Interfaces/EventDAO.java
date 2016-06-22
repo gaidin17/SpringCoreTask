@@ -1,6 +1,6 @@
-package DAO.Interfaces;
+package dao.interfaces;
 
-import Domain.Event;
+import domain.Event;
 
 import java.util.List;
 

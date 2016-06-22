@@ -1,7 +1,7 @@
-package DAO.Impl;
+package dao.impl;
 
-import DAO.Interfaces.UserDAO;
-import Domain.User;
+import dao.interfaces.UserDAO;
+import domain.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,13 +26,15 @@ public class UserDaoImpl implements UserDAO {
 
     public User getById(int id) {
         for (User user : users) {
-            if (user.getId() == id) return user;
+            if (user.getId() == id) {
+                return user;
+            }
         }
         return null;
     }
 
     public List<User> getByName(String name) {
-        List<User> result = new ArrayList<User>();
+        List<User> result = new ArrayList<>();
         for (User user : users) {
             if (user.getName().equals(name)) {
                 result.add(user);

@@ -1,8 +1,8 @@
-package Service;
+package service;
 
-import Service.ServiseUtils.DiscountStrategy;
-import Domain.Event;
-import Domain.User;
+import service.utils.DiscountStrategy;
+import domain.Event;
+import domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,7 +21,6 @@ public class DiscountService {
 
     public Double getDiscount(User user, Event event, LocalDate date) {
         if (user != null && event != null && date != null) {
-            double basePrice = event.getBasePrice();
             double discount = 0d;
             int everyTenCount = user.getTickets().size() / 10;
             if (everyTenCount / 10 >= 1) {

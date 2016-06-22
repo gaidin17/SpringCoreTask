@@ -1,4 +1,4 @@
-package Domain;
+package domain;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,7 @@ public class Auditorium {
     private List<Integer> vipSeats;
 
     public Auditorium(String name, int numberOfSeats, double modificatorForVip, String vipSeats) {
-        id = id++;
+        id++;
         this.name = name;
         this.numberOfSeats = numberOfSeats;
         this.modificatorForVip = modificatorForVip;
@@ -27,7 +27,7 @@ public class Auditorium {
 
     private List<Integer> createVipSeatsList(String string) {
         String[] stringSeats = string.split(",");
-        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new ArrayList<>();
         for (String s : stringSeats) {
             try {
                 list.add(Integer.parseInt(s));

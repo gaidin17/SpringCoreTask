@@ -17,7 +17,7 @@
     <import resource="services.xml"/>
     <import resource="discount.xml"/>
 
-    <bean id="mainApp" class="MainApp">
+    <bean id="mainApp" class="main.MainApp">
         <property name="discountService" ref="discountService"/>
         <property name="userService" ref="userService"/>
         <property name="eventService" ref="eventService"/>
