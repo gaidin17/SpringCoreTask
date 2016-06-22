@@ -8,18 +8,19 @@ import java.util.List;
  * Created by Evgeny_Akulenko on 6/20/2016.
  */
 public class User {
-    private static int id = 0;
+    private static int countId = 0;
+    private int id;
     private String name;
     private String email;
     private LocalDate birthDate;
     private List<Ticket> tickets;
 
     public User(String name, String email, String birthDate) {
-        id = id++;
+        id = countId++;
         this.name = name;
         this.email = email;
         this.birthDate = LocalDate.parse(birthDate);
-        this.tickets = new ArrayList<Ticket>();
+        this.tickets = new ArrayList<>();
     }
 
     public LocalDate getBirthDate() {
@@ -75,6 +76,4 @@ public class User {
         }
         return builder.toString();
     }
-
-
 }

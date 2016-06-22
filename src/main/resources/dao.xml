@@ -10,7 +10,7 @@
  		http://www.springframework.org/schema/util
  		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
-    <bean id="userDao" class="DAO.Impl.UserDaoImpl">
+    <bean id="userDao" class="dao.impl.UserDaoImpl">
         <constructor-arg>
             <list>
                 <ref bean="user1"/>
@@ -21,7 +21,7 @@
         </constructor-arg>
     </bean>
 
-    <bean id="eventDao" class="DAO.Impl.EventDaoImpl">
+    <bean id="eventDao" class="dao.impl.EventDaoImpl">
         <constructor-arg>
             <list>
                 <ref bean="event1"/>
@@ -32,7 +32,7 @@
         </constructor-arg>
     </bean>
 
-    <bean id="auditoriumDao" class="DAO.Impl.AuditoriumDaoImpl">
+    <bean id="auditoriumDao" class="dao.impl.AuditoriumDaoImpl">
         <constructor-arg>
             <list>
                 <ref bean="auditorium1"/>

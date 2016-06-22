@@ -11,14 +11,15 @@ import java.util.List;
  */
 public class Auditorium {
     private static final Logger logger = LoggerFactory.getLogger(Auditorium.class);
-    private static int id = 0;
+    private static int countId = 0;
+    private int id;
     private String name;
     private int numberOfSeats;
     private double modificatorForVip;
     private List<Integer> vipSeats;
 
     public Auditorium(String name, int numberOfSeats, double modificatorForVip, String vipSeats) {
-        id++;
+        id = countId++;
         this.name = name;
         this.numberOfSeats = numberOfSeats;
         this.modificatorForVip = modificatorForVip;

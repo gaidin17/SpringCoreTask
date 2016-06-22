@@ -11,24 +11,18 @@ import java.util.List;
  * Created by Evgeny_Akulenko on 6/20/2016.
  */
 public class Event {
-    private static int id = 0;
-
+    private static int countId = 0;
+    private int id;
     private String name;
-
     private LocalDate date;
-
     private LocalTime time;
-
     private Double basePrice;
-
     private Rating rating;
-
     private List<Ticket> tickets;
-
     private Auditorium auditorium;
 
     public Event(String name, String date, String time, Double basePrice, Rating rating, Auditorium auditorium) {
-        id++;
+        id = countId++;
         this.name = name;
         this.date = LocalDate.parse(date);
         this.time = LocalTime.parse(time);
@@ -118,5 +112,4 @@ public class Event {
         builder.append("Auditorium: ").append(auditorium.getName()).append("\n");
         return builder.toString();
     }
-
 }

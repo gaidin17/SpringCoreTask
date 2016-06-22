@@ -10,23 +10,23 @@
  		http://www.springframework.org/schema/util
  		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
-    <bean id="auditoriumService" class="Service.AuditoriumService">
+    <bean id="auditoriumService" class="service.AuditoriumService">
         <property name="auditoriumDao" ref="auditoriumDao"/>
     </bean>
 
-    <bean id="discountService" class="Service.DiscountService">
+    <bean id="discountService" class="service.DiscountService">
         <property name="discountStrategy" ref="discountStrategy"/>
     </bean>
 
-    <bean id="eventService" class="Service.EventService">
+    <bean id="eventService" class="service.EventService">
         <property name="eventDao" ref="eventDao"/>
     </bean>
 
-    <bean id="userService" class="Service.UserService">
+    <bean id="userService" class="service.UserService">
         <property name="userDao" ref="userDao"/>
     </bean>
 
-    <bean id="bookingService" class="Service.BookingService">
+    <bean id="bookingService" class="service.BookingService">
         <property name="discountService" ref="discountService"/>
         <property name="userService" ref="userService"/>
         <property name="eventService" ref="eventService"/>

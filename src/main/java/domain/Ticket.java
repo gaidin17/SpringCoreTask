@@ -4,18 +4,16 @@ package domain;
  * Created by Evgeny_Akulenko on 6/20/2016.
  */
 public class Ticket {
-    private static int id = 0;
-
+    private static int countId = 0;
+    private int id;
     private int eventId;
-
     private int userId;
-
     private int seat;
-
+    private double price;
     private boolean isBooked = false;
 
     Ticket(int eventId, int seat) {
-        id++;
+        id = countId++;
         this.eventId = eventId;
         this.seat = seat;
     }
@@ -46,6 +44,14 @@ public class Ticket {
 
     public void setSeat(int seat) {
         this.seat = seat;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public boolean isBooked() {

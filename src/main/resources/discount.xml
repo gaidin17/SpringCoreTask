@@ -10,7 +10,7 @@
  		http://www.springframework.org/schema/util
  		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
-    <bean id="discountStrategy" class="Service.ServiseUtils.DiscountStrategy">
+    <bean id="discountStrategy" class="service.utils.DiscountStrategy">
         <property name="birthdayDiscount" value= "5"/>
         <property name="everyTenDiscount" value="50"/>
     </bean>

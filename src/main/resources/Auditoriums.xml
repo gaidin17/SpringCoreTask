@@ -24,28 +24,28 @@
         </property>
     </bean>
 
-    <bean id="auditorium1" class="Domain.Auditorium">
+    <bean id="auditorium1" class="domain.Auditorium">
         <constructor-arg value="${Olimp.name}"/>
         <constructor-arg value="${Olimp.numberOfSeats}"/>
         <constructor-arg value="${Olimp.modificatorForVip}"/>
         <constructor-arg value="${Olimp.vipSeats}"/>
     </bean>
 
-    <bean id="auditorium2" class="Domain.Auditorium">
+    <bean id="auditorium2" class="domain.Auditorium">
         <constructor-arg type="java.lang.String" value="${Bar.name}"/>
         <constructor-arg value="${Bar.numberOfSeats}"/>
         <constructor-arg value="${Bar.modificatorForVip}"/>
         <constructor-arg value="${Bar.vipSeats}"/>
     </bean>
 
-    <bean id="auditorium3" class="Domain.Auditorium">
+    <bean id="auditorium3" class="domain.Auditorium">
         <constructor-arg value="${Stadium.name}"/>
         <constructor-arg value="${Stadium.numberOfSeats}"/>
         <constructor-arg value="${Stadium.modificatorForVip}"/>
         <constructor-arg value="${Stadium.vipSeats}"/>
     </bean>
 
-    <bean id="auditorium4" class="Domain.Auditorium">
+    <bean id="auditorium4" class="domain.Auditorium">
         <constructor-arg value="${KKZ.name}"/>
         <constructor-arg value="${KKZ.numberOfSeats}"/>
         <constructor-arg value="${KKZ.modificatorForVip}"/>

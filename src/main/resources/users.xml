@@ -6,22 +6,23 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:c="http://www.springframework.org/schema/c">
 
-      <bean id="user1" class="Domain.User">
+      <bean id="user1" class="domain.User">
         <constructor-arg type="java.lang.String" value="Mike"/>
         <constructor-arg type="java.lang.String" value="Mike@gmail.com"/>
         <constructor-arg type="java.lang.String" value="1980-10-05" />
     </bean>
-    <bean id="user2" class="Domain.User">
+
+    <bean id="user2" class="domain.User">
         <constructor-arg type="java.lang.String" value="Donnie"/>
         <constructor-arg type="java.lang.String" value="sexyBabe@gamil.com"/>
         <constructor-arg type="java.lang.String" value="1981-11-01" />
     </bean>
-    <bean id="user3" class="Domain.User">
+    <bean id="user3" class="domain.User">
         <constructor-arg type="java.lang.String" value="Stefany"/>
         <constructor-arg type="java.lang.String" value="Stefany@ya.ru"/>
         <constructor-arg type="java.lang.String" value="1960-08-12" />
     </bean>
-    <bean id="user4" class="Domain.User">
+    <bean id="user4" class="domain.User">
         <constructor-arg type="java.lang.String" value="Yuri"/>
         <constructor-arg type="java.lang.String" value="liberal@putin.su"/>
         <constructor-arg type="java.lang.String" value="1981-05-09" />
