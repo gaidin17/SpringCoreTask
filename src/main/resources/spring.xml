@@ -20,6 +20,8 @@
     <import resource="services.xml"/>
     <import resource="discount.xml"/>
     <import resource="aspects.xml"/>
+    <import resource="dataBase.xml"/>
+    <import resource="properties.xml"/>
 
     <bean id="mainApp" class="main.MainApp">
         <property name="userService" ref="userService"/>

@@ -35,4 +35,7 @@ public class EventDaoImpl implements EventDAO {
     public void remove(Event event) {
         events.remove(event);
     }
+
+    public void update(Event event) {
+    }
 }

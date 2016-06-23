@@ -11,7 +11,6 @@ import java.util.List;
  * Created by Evgeny_Akulenko on 6/20/2016.
  */
 public class Event {
-    private static int countId = 0;
     private int id;
     private String name;
     private LocalDate date;
@@ -21,8 +20,8 @@ public class Event {
     private List<Ticket> tickets;
     private Auditorium auditorium;
 
-    public Event(String name, String date, String time, Double basePrice, Rating rating, Auditorium auditorium) {
-        id = countId++;
+    public Event(int id, String name, String date, String time, Double basePrice, Rating rating, Auditorium auditorium) {
+        this.id = id;
         this.name = name;
         this.date = LocalDate.parse(date);
         this.time = LocalTime.parse(time);
@@ -93,7 +92,7 @@ public class Event {
     }
 
     private List<Ticket> createTickets() {
-        List<Ticket> ticketsList = new ArrayList<Ticket>();
+        List<Ticket> ticketsList = new ArrayList<>();
         for (int i = 0; i < auditorium.getNumberOfSeats(); i++) {
             ticketsList.add(new Ticket(id, i));
         }

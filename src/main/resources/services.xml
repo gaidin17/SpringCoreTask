@@ -11,7 +11,7 @@
  		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
     <bean id="auditoriumService" class="service.AuditoriumService">
-        <property name="auditoriumDao" ref="auditoriumDao"/>
+        <property name="auditoriumDao" ref="auditoriumDaoDb"/>
     </bean>
 
     <bean id="discountService" class="service.DiscountService">
@@ -19,11 +19,11 @@
     </bean>
 
     <bean id="eventService" class="service.EventService">
-        <property name="eventDao" ref="eventDao"/>
+        <property name="eventDao" ref="eventDaoDb"/>
     </bean>
 
     <bean id="userService" class="service.UserService">
-        <property name="userDao" ref="userDao"/>
+        <property name="userDao" ref="userDaoDb"/>
     </bean>
 
     <bean id="bookingService" class="service.BookingService">

@@ -8,15 +8,14 @@ import java.util.List;
  * Created by Evgeny_Akulenko on 6/20/2016.
  */
 public class User {
-    private static int countId = 0;
     private int id;
     private String name;
     private String email;
     private LocalDate birthDate;
     private List<Ticket> tickets;
 
-    public User(String name, String email, String birthDate) {
-        id = countId++;
+    public User(int id, String name, String email, String birthDate) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.birthDate = LocalDate.parse(birthDate);

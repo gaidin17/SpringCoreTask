@@ -16,10 +16,6 @@ public class UserDaoImpl implements UserDAO {
         this.users = users;
     }
 
-    public List<User> getAllUsers() {
-        return users;
-    }
-
     public void deleteUser(User user) {
         users.remove(user);
     }
@@ -62,6 +58,10 @@ public class UserDaoImpl implements UserDAO {
 
     public void remove(User user) {
         users.remove(user);
+    }
+
+    public void update(User user) {
+
     }
 }
 

@@ -47,7 +47,7 @@ public class BookingService {
     }
 
     public void bookTicket(User user, Ticket ticket) {
-        if (userService.getAll().contains(user)) {
+        if (userService.getById(user.getId()) != null) {
             if (!ticket.isBooked()) {
                 ticket.setBooked(true);
                 ticket.setUserId(user.getId());

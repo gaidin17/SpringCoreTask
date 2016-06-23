@@ -43,4 +43,19 @@
         </constructor-arg>
     </bean>
 
+    <bean id="userDaoDb" class="dao.impl.dbimpl.UserDaoDbImpl" >
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+
+    <bean id="eventDaoDb" class="dao.impl.dbimpl.EventDaoDbImpl">
+        <property name="auditoriumDAO" ref="auditoriumDaoDb"/>
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+
+    <bean id="auditoriumDaoDb" class="dao.impl.dbimpl.AuditoriumDaoDbImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+
+
+
 </beans>

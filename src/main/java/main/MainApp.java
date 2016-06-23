@@ -43,12 +43,13 @@ public class MainApp {
         ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
         MainApp mainApp = (MainApp) ctx.getBean("mainApp");
         mainApp.showAllAuditoriums();
-        User user1 = (User) ctx.getBean("user1");
+        User user1 = ((UserService) ctx.getBean("userService")).getById(4);
         User user2 = (User) ctx.getBean("user2");
 
-        Ticket ticket = mainApp.getTicketById("beerFest", 5);
+        Ticket ticket = mainApp.getTicketById("Rock Fest", 5);
+        Ticket ticket1 = mainApp.getTicketById("Rock Fest", 15);
         mainApp.bookTicket(user1, ticket);
-        mainApp.bookTicket(user2, ticket);
+        mainApp.bookTicket(user2, ticket1);
     }
 
     private List<Ticket> showBookedTickets(String userEmail) {

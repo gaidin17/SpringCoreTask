@@ -13,6 +13,8 @@ public interface AuditoriumDAO {
 
     void create(Auditorium auditorium);
 
+    void update(Auditorium auditorium);
+
     void remove(Auditorium auditorium);
 
     Auditorium getByName(String name);

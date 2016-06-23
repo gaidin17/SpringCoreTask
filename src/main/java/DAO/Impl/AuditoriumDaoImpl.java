@@ -36,6 +36,10 @@ public class AuditoriumDaoImpl implements AuditoriumDAO {
         }
     }
 
+    public void update(Auditorium auditorium) {
+
+    }
+
     public void remove(Auditorium auditorium) {
         if (auditoriums.contains(auditorium) && auditorium != null) {
             auditoriums.remove(auditorium);
