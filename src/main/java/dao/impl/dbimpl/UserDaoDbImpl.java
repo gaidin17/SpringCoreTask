@@ -4,7 +4,6 @@ import dao.interfaces.UserDAO;
 import domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -25,7 +24,7 @@ public class UserDaoDbImpl implements UserDAO {
     }
 
     public void create(User user) {
-        jdbcTemplate.update("INSERT INTO users (userName, email, birthdate) VALUES (?,?,?)",
+        jdbcTemplate.update("INSERT INTO users (name, email, birthdate) VALUES (?,?,?)",
                 user.getName(),
                 user.getEmail(),
                 user.getBirthDate().toString());
@@ -51,7 +50,7 @@ public class UserDaoDbImpl implements UserDAO {
     public List<User> getByName(String name) {
         List<User> users = new ArrayList<>();
         try {
-            users = jdbcTemplate.query("SELECT * FROM users WHERE users.username = ?",
+            users = jdbcTemplate.query("SELECT * FROM users WHERE users.name = ?",
                     new Object[]{name},
                     new UserRowMapper());
 
@@ -79,7 +78,7 @@ public class UserDaoDbImpl implements UserDAO {
     }
 
     public void update(User user) {
-        jdbcTemplate.update("UPDATE users SET userName = ?, email = ?, birthDay = ? WHERE users.id = ?",
+        jdbcTemplate.update("UPDATE users SET name = ?, email = ?, birthDay = ? WHERE users.id = ?",
                 user.getName(),
                 user.getEmail(),
                 user.getBirthDate().toString(),
