@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-4.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+
+    <bean id="auditorium1" class="domain.Auditorium">
+        <constructor-arg value="${Olimp.id}"/>
+        <constructor-arg value="${Olimp.name}"/>
+        <constructor-arg value="${Olimp.numberOfSeats}"/>
+        <constructor-arg value="${Olimp.modificatorForVip}"/>
+        <constructor-arg value="${Olimp.vipSeats}"/>
+    </bean>
+
+    <bean id="auditorium2" class="domain.Auditorium">
+        <constructor-arg value="${Bar.id}"/>
+        <constructor-arg value="${Bar.name}"/>
+        <constructor-arg value="${Bar.numberOfSeats}"/>
+        <constructor-arg value="${Bar.modificatorForVip}"/>
+        <constructor-arg value="${Bar.vipSeats}"/>
+    </bean>
+
+    <bean id="auditorium3" class="domain.Auditorium">
+        <constructor-arg value="${Stadium.id}"/>
+        <constructor-arg value="${Stadium.name}"/>
+        <constructor-arg value="${Stadium.numberOfSeats}"/>
+        <constructor-arg value="${Stadium.modificatorForVip}"/>
+        <constructor-arg value="${Stadium.vipSeats}"/>
+    </bean>
+
+    <bean id="auditorium4" class="domain.Auditorium">
+        <constructor-arg value="${KKZ.id}"/>
+        <constructor-arg value="${KKZ.name}"/>
+        <constructor-arg value="${KKZ.numberOfSeats}"/>
+        <constructor-arg value="${KKZ.modificatorForVip}"/>
+        <constructor-arg value="${KKZ.vipSeats}"/>
+    </bean>
+</beans>
