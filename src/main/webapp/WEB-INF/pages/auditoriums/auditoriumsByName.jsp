@@ -9,10 +9,12 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 </head>
 <body>
- <h2>Users</h2>
- <c:forEach items="${users}" var="user">
- <p><a href = "${pageContext.request.contextPath}/usersByEmail/${user.getEmail()}/">${user.getName()}</a></p>
- </c:forEach>
- <a href="/EventCenter/">back to main page</a>
+    <h2>Auditorium description</h2>
+    <p>Auditorium Name: ${auditorium.getName()}</p>
+    <p>Auditorium Number of seats: ${auditorium.getNumberOfSeats()}</p>
+    <p>Auditorium Vip seats: ${auditorium.getVipSeats()}</p>
+    <p>Auditorium modificator for Vip seats: ${auditorium.getModificatorForVip()}</p>
+    <br/>
+    <a href="/EventCenter/">back to main page</a>
  </body>
  </html>

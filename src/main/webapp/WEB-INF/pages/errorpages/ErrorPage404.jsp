@@ -9,10 +9,9 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 </head>
 <body>
- <h2>Users</h2>
- <c:forEach items="${users}" var="user">
- <p><a href = "${pageContext.request.contextPath}/usersByEmail/${user.getEmail()}/">${user.getName()}</a></p>
- </c:forEach>
+ <h2>Error!</h2>
+ <p>Are you kidding me? This page does not exist!</p>
+ <br/>
  <a href="/EventCenter/">back to main page</a>
  </body>
  </html>

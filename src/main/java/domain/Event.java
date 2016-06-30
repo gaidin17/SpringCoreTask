@@ -27,8 +27,10 @@ public class Event {
         this.time = LocalTime.parse(time);
         this.basePrice = basePrice;
         this.rating = rating;
-        this.auditorium = auditorium;
-        this.tickets = createTickets();
+        if (auditorium != null) {
+            this.auditorium = auditorium;
+            this.tickets = createTickets();
+        }
     }
 
     public List<Ticket> getTickets() {

@@ -5,16 +5,24 @@
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 
 <head>
-    <title>Movie Theater</title>
+    <title>EventCenter</title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 </head>
 <body>
  <h2>BookedTickets by ${user.getName()}</h2>
- <c:forEach items="${tickets}" var="ticket">
- <p>$(ticket.getId())</p>
- <p>$(ticket.getEventId())</p>
- <p>$(ticket.getSeat())</p>
- <p>$(ticket.getPrice())</p>
- </c:forEach>
+ <c:choose>
+    <c:when test="${tickets.size() == 0}">
+        <p>No one booked ticket</p>
+    </c:when>
+    <c:otherwise>
+        <c:forEach items="${tickets}" var="ticket">
+            <p>$(ticket.getId())</p>
+            <p>$(ticket.getEventId())</p>
+            <p>$(ticket.getSeat())</p>
+            <p>$(ticket.getPrice())</p>
+        </c:forEach>
+    </c:otherwise>
+ </c:choose>
+ <a href="/EventCenter/">back to main page</a>
  </body>
  </html>

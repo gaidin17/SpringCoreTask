@@ -22,6 +22,8 @@
     <import resource="aspects.xml"/>
     <import resource="dataBase.xml"/>
     <import resource="properties.xml"/>
+    <import resource="utilites.xml"/>
+    <import resource="viewResolvers.xml"/>
 
     <bean id="mainApp" class="main.MainApp">
         <property name="userService" ref="userService"/>

@@ -9,10 +9,14 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 </head>
 <body>
- <h2>Users</h2>
- <c:forEach items="${users}" var="user">
- <p><a href = "${pageContext.request.contextPath}/usersByEmail/${user.getEmail()}/">${user.getName()}</a></p>
- </c:forEach>
- <a href="/EventCenter/">back to main page</a>
+      <h2>Event Description</h2>
+      <p>Event Name: ${event.getName()}</p>
+      <p>Event Date: ${event.getDate()}</p>
+      <p>Event Time: ${event.getTime()}</p>
+      <p>Event Rating: ${event.getRating()}</p>
+      <p>Event Base price: ${event.getBasePrice()}</p>
+      <p>Event Auditorium: ${event.getAuditorium().getName()}</p>
+      <br/>
+      <a href="/EventCenter/">back to main page</a>
  </body>
  </html>

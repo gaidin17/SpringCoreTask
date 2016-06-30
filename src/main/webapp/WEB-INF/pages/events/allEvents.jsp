@@ -9,10 +9,15 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 </head>
 <body>
- <h2>Users</h2>
- <c:forEach items="${users}" var="user">
- <p><a href = "${pageContext.request.contextPath}/usersByEmail/${user.getEmail()}/">${user.getName()}</a></p>
+ <h2>Events</h2>
+ <c:forEach items="${events}" var="event">
+    <p>
+        <a href = "${pageContext.request.contextPath}/eventsByName/${event.getName()}/">${event.getName()}</a>
+        &nbsp;&nbsp;&nbsp
+        <a href = "${pageContext.request.contextPath}/pdfEventsByName/${event.getName()}/"/> show as pdf </a>
+    </p>
  </c:forEach>
+ <br/>
  <a href="/EventCenter/">back to main page</a>
  </body>
  </html>

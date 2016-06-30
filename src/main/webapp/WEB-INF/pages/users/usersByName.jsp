@@ -5,15 +5,17 @@
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 
 <head>
-    <title>Movie Theater</title>
+    <title>EventCenter</title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 </head>
 <body>
+    <h2>User Description</h2>
     <c:forEach items="${users}" var="user">
-      <p>${user.getName()}</p>
-      <p>${user.getEmail()}</p>
-      <p>${user.getBirthDate()}</p>
-      <br/>
-     </c:forEach>
+        <p>User Name: ${user.getName()}</p>
+        <p>User Email: ${user.getEmail()}</p>
+        <p>User Birthdate s${user.getBirthDate()}</p>
+        <br/>
+    </c:forEach>
+    <a href="/EventCenter/">back to main page</a>
  </body>
  </html>

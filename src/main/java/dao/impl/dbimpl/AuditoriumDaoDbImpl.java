@@ -4,8 +4,10 @@ import dao.interfaces.AuditoriumDAO;
 import domain.Auditorium;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import utils.exceptions.EventCenterDaoException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,59 +25,86 @@ public class AuditoriumDaoDbImpl implements AuditoriumDAO {
     }
 
     public Auditorium getById(int id) {
-        Auditorium auditorium = null;
+        Auditorium auditorium;
         try {
             auditorium = jdbcTemplate.queryForObject("SELECT * FROM auditoriums WHERE auditoriums.id = ?",
                     new Object[]{id},
                     new AuditoriumRowMapper());
-        } catch (Exception ex) {
-            logger.warn("Where is no one auditorium with id = {}", id);
+        } catch (DataAccessException ex) {
+            String message = "Where is no one auditorium with id = " + id;
+            logger.error(message);
+            throw new EventCenterDaoException(message);
         }
         return auditorium;
     }
 
     public void create(Auditorium auditorium) {
-        jdbcTemplate.update("INSERT INTO auditoriums (name, seats, modificatorforvip, vipseats ) VALUES (?,?,?,?)",
-                auditorium.getName(),
-                auditorium.getNumberOfSeats(),
-                auditorium.getModificatorForVip(),
-                auditorium.getVipSeats());
+        try {
+            jdbcTemplate.update("INSERT INTO auditoriums (name, seats, modificatorforvip, vipseats ) VALUES (?,?,?,?)",
+                    auditorium.getName(),
+                    auditorium.getNumberOfSeats(),
+                    auditorium.getModificatorForVip(),
+                    auditorium.getVipSeats());
+        } catch (DataAccessException ex) {
+            String message = "Unavalible to create auditorium with name = " + auditorium.getName();
+            logger.error(message);
+            throw new EventCenterDaoException(message);
+        }
     }
 
     @Override
     public void update(Auditorium auditorium) {
-        jdbcTemplate.update("UPDATE auditoriums  SET mame = ?, seats = ?, modificatorforvip= ?, vipseats = ? WHERE auditoriums.id = ?",
-                auditorium.getName(),
-                auditorium.getNumberOfSeats(),
-                auditorium.getModificatorForVip(),
-                auditorium.getVipSeats(),
-                auditorium.getId());
+        try {
+            jdbcTemplate.update("UPDATE auditoriums  SET mame = ?, seats = ?, modificatorforvip= ?, vipseats = ? WHERE auditoriums.id = ?",
+                    auditorium.getName(),
+                    auditorium.getNumberOfSeats(),
+                    auditorium.getModificatorForVip(),
+                    auditorium.getVipSeats(),
+                    auditorium.getId());
+        } catch (DataAccessException ex) {
+            String message = "Unavalible to update auditorium with name = " + auditorium.getName();
+            logger.error(message);
+            throw new EventCenterDaoException(message);
+        }
     }
 
     public void remove(Auditorium auditorium) {
-        jdbcTemplate.update("DELETE FROM auditoriums WHERE auditoriums.id = ?",
-                auditorium.getId());
+        try {
+            jdbcTemplate.update("DELETE FROM auditoriums WHERE auditoriums.id = ?",
+                    auditorium.getId());
+        } catch (DataAccessException ex) {
+            String message = "Unavalible to remove auditorium with name = " + auditorium.getName();
+            logger.error(message);
+            throw new EventCenterDaoException(message);
+        }
     }
 
     public Auditorium getByName(String name) {
-        Auditorium auditorium = null;
+        Auditorium auditorium;
         try {
             auditorium = jdbcTemplate.queryForObject("SELECT * FROM auditoriums WHERE auditoriums.name = ?",
                     new Object[]{name},
                     new AuditoriumRowMapper());
-        } catch (Exception ex) {
-            logger.warn("Where is no one auditorium with name = {}", name);
+        } catch (DataAccessException ex) {
+            String message = "Unavalible to get auditorium with name = " + name;
+            logger.error(message);
+            throw new EventCenterDaoException(message);
         }
         return auditorium;
     }
 
     public List<Auditorium> getAll() {
-        return jdbcTemplate.query("SELECT * FROM auditoriums",
-                new AuditoriumRowMapper());
+        try {
+            return jdbcTemplate.query("SELECT * FROM auditoriums",
+                    new AuditoriumRowMapper());
+        } catch (DataAccessException ex) {
+            String message = "Unavalible to get all auditoriums";
+            logger.error(message);
+            throw new EventCenterDaoException(message);
+        }
     }
 
     private class AuditoriumRowMapper implements RowMapper<Auditorium> {
-
         @Override
         public Auditorium mapRow(ResultSet resultSet, int i) throws SQLException {
             return new Auditorium(resultSet.getInt("id"),
