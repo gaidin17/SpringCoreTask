@@ -20,6 +20,10 @@ public class AuditoriumService {
         return auditoriumDao.getAll();
     }
 
+    public Auditorium getByName(String string) {
+        return auditoriumDao.getByName(string);
+    }
+
     public int getSeatsNumber(Auditorium auditorium) {
         return auditorium.getNumberOfSeats();
     }

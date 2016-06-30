@@ -37,5 +37,6 @@ public class EventDaoImpl implements EventDAO {
     }
 
     public void update(Event event) {
+        throw new UnsupportedOperationException("This operation  is unsupported");
     }
 }

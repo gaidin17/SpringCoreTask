@@ -13,7 +13,9 @@ public class User {
     private String email;
     private LocalDate birthDate;
     private List<Ticket> tickets;
+    public User() {
 
+    }
     public User(int id, String name, String email, String birthDate) {
         this.id = id;
         this.name = name;

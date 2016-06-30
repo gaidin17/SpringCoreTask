@@ -37,6 +37,7 @@ public class AuditoriumDaoImpl implements AuditoriumDAO {
     }
 
     public void update(Auditorium auditorium) {
+        throw new UnsupportedOperationException("This operation  is unsupported");
 
     }
 

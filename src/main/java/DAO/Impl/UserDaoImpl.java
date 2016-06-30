@@ -61,7 +61,7 @@ public class UserDaoImpl implements UserDAO {
     }
 
     public void update(User user) {
-
+        throw new UnsupportedOperationException("This operation  is unsupported");
     }
 }
 
