@@ -58,4 +58,7 @@
 
     <bean id="userDaoHibernate" class="dao.impl.hibernateimpl.UserDaoHibernateImpl"/>
 
+    <bean id="employeeDaoHibernate" class="dao.impl.hibernateimpl.EmployeeDaoHibernateImpl"/>
+
+    <bean id="jobDaoHibernate" class="dao.impl.hibernateimpl.JobDaoHibernateImpl"/>
 </beans>

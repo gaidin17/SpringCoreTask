@@ -39,5 +39,9 @@
 
     <bean id="auditorium" class="domain.Auditorium" scope="prototype"/>
 
+    <bean id="employee" class="domain.Employee" scope="prototype"/>
+
+    <bean id="job" class="domain.Job" scope="prototype"/>
+
 </beans>
 

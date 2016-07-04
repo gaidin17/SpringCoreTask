@@ -8,6 +8,7 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 </head>
 <body>
+   <a href="${pageContext.request.contextPath}/work.jsp">work module</a></br></br></br>
    <a href="${pageContext.request.contextPath}/allUsers">All Users</a><br/>
    <a href="${pageContext.request.contextPath}/allAuditoriums">All Auditoriums</a><br/>
    <a href="${pageContext.request.contextPath}/allEvents">All Events</a><br/><br/>

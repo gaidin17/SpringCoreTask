@@ -32,4 +32,16 @@
         <property name="eventService" ref="eventService"/>
     </bean>
 
+    <bean id="employeeService" class="service.EmployeeService">
+        <property name="employeeDao" ref="employeeDaoHibernate"/>
+    </bean>
+
+    <bean id="jobService" class="service.JobService">
+        <property name="jobDao" ref="jobDaoHibernate"/>
+    </bean>
+
+    <bean id="workService" class="service.WorkService">
+        <property name="jobService" ref="jobService"/>
+    </bean>
+
 </beans>
