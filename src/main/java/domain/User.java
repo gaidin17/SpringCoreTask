@@ -16,13 +16,14 @@ public class User {
 
     private String name;
 
+    @Column(unique = true)
     private String email;
 
     @Column(name = "birthdate")
-    private LocalDate birthDate;
+    private String birthDate;
 
     @Transient
-    private List<Ticket> tickets;
+    private List<Ticket> tickets = new ArrayList<>();
 
     public User() {
 
@@ -32,16 +33,16 @@ public class User {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.birthDate = LocalDate.parse(birthDate);
+        this.birthDate = birthDate;
         this.tickets = new ArrayList<>();
     }
 
     public LocalDate getBirthDate() {
-        return birthDate;
+        return LocalDate.parse(birthDate);
     }
 
     public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
+        this.birthDate = birthDate.toString();
     }
 
     public int getId() {

@@ -12,6 +12,7 @@ import java.util.List;
  */
 @Entity(name = "auditoriums")
 public class Auditorium {
+
     @Transient
     private static final Logger logger = LoggerFactory.getLogger(Auditorium.class);
 
@@ -19,6 +20,7 @@ public class Auditorium {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(unique = true)
     private String name;
 
     @Column(name = "seats")
