@@ -24,6 +24,7 @@
     <import resource="properties.xml"/>
     <import resource="utilites.xml"/>
     <import resource="viewResolvers.xml"/>
+    <import resource="hibernate.xml"/>
 
     <bean id="mainApp" class="main.MainApp">
         <property name="userService" ref="userService"/>

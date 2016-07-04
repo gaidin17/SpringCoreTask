@@ -1,5 +1,6 @@
 package domain;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,15 +8,26 @@ import java.util.List;
 /**
  * Created by Evgeny_Akulenko on 6/20/2016.
  */
+@Entity(name = "users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
+
     private String email;
+
+    @Column(name = "birthdate")
     private LocalDate birthDate;
+
+    @Transient
     private List<Ticket> tickets;
+
     public User() {
 
     }
+
     public User(int id, String name, String email, String birthDate) {
         this.id = id;
         this.name = name;
