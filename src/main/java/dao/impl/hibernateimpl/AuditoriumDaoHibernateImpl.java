@@ -31,7 +31,8 @@ public class AuditoriumDaoHibernateImpl implements AuditoriumDAO {
 
     @Override
     public void remove(Auditorium auditorium) {
-        em.remove(auditorium);
+        Auditorium auditoriumForRemove = getById(auditorium.getId());
+        em.remove(auditoriumForRemove);
     }
 
     @Override

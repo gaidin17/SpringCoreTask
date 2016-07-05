@@ -34,7 +34,8 @@ public class EmployeeDaoHibernateImpl implements EmployeeDAO {
     @Override
     @Transactional
     public void remove(Employee employee) {
-        em.remove(employee);
+        Employee employeeForRemove = getById(employee.getId());
+        em.remove(employeeForRemove);
     }
 
     @Override

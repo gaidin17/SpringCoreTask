@@ -46,7 +46,8 @@ public class UserDaoHibernateImpl implements UserDAO {
     @Transactional
     @Override
     public void remove(User user) {
-        em.remove(user);
+        User userForRemove = getById(user.getId());
+        em.remove(userForRemove);
     }
 
     @Transactional

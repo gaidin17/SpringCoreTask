@@ -35,7 +35,8 @@ public class EventDaoHibernateImpl implements EventDAO {
     @Transactional
     @Override
     public void remove(Event event) {
-        em.remove(event);
+        Event eventForRemove = getById(event.getId());
+        em.remove(eventForRemove);
     }
 
     @Transactional

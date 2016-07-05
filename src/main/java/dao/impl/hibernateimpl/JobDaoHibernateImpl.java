@@ -44,7 +44,8 @@ public class JobDaoHibernateImpl implements JobDAO {
     @Override
     @Transactional
     public void remove(Job job) {
-        em.remove(job);
+        Job jobForRemove = getById(job.getId());
+        em.remove(jobForRemove);
     }
 
     @Override
