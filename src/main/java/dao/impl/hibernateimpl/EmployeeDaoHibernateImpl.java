@@ -1,9 +1,7 @@
 package dao.impl.hibernateimpl;
 
 import dao.interfaces.EmployeeDAO;
-import domain.Auditorium;
 import domain.Employee;
-import domain.Job;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;

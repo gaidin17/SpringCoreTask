@@ -1,6 +1,7 @@
 package service;
 
 import dao.interfaces.JobDAO;
+import domain.Employee;
 import domain.Job;
 
 import java.util.List;
@@ -30,6 +31,14 @@ public class JobService {
 
     public void remove(Job job) {
         jobDao.remove(job);
+    }
+
+    public List<Job> getAvailableJobs() {
+        return jobDao.getByEmployee(null);
+    }
+
+    public List<Job> getJobsByEmployeeId(Employee employee) {
+        return jobDao.getByEmployee(employee);
     }
 
     public void update(Job job) {

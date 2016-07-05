@@ -26,8 +26,6 @@ public class Employee {
         this.name = name;
     }
 
-
-
     public List<Job> getJobs() {
         return jobs;
     }
@@ -38,5 +36,15 @@ public class Employee {
 
     public int getId() {
         return id;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Employee) {
+            if (this.getId() == ((Employee) obj).getId()) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -1,5 +1,6 @@
 package dao.interfaces;
 
+import domain.Employee;
 import domain.Job;
 
 import java.util.List;
@@ -12,6 +13,8 @@ public interface JobDAO {
     Job getById(int id);
 
     List<Job> getAll();
+
+    List<Job> getByEmployee(Employee employee);
 
     void create(Job job);
 

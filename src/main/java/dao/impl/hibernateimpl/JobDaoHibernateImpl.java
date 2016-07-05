@@ -1,6 +1,7 @@
 package dao.impl.hibernateimpl;
 
 import dao.interfaces.JobDAO;
+import domain.Employee;
 import domain.Job;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +24,15 @@ public class JobDaoHibernateImpl implements JobDAO {
     @Override
     public List<Job> getAll() {
         return em.createQuery("from jobs", Job.class).getResultList();
+    }
+
+    @Override
+    public List<Job> getByEmployee(Employee employee) {
+        if (employee == null) {
+            return em.createQuery("from jobs j where j.employee is null", Job.class).getResultList();
+        } else {
+            return em.createQuery("from jobs j where j.employee = :employee", Job.class).setParameter("employee", employee).getResultList();
+        }
     }
 
     @Override
