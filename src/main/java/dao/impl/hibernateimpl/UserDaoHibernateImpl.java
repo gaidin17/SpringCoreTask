@@ -3,6 +3,7 @@ package dao.impl.hibernateimpl;
 import dao.interfaces.UserDAO;
 import domain.User;
 import org.springframework.transaction.annotation.Transactional;
+import utils.exceptions.DataBlockedException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -40,7 +41,11 @@ public class UserDaoHibernateImpl implements UserDAO {
     @Transactional
     @Override
     public void create(User user) {
-        em.persist(user);
+        try {
+            em.persist(user);
+        } catch (Exception ex) {
+            throw new DataBlockedException("This user is allready in database");
+        }
     }
 
     @Transactional

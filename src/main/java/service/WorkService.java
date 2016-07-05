@@ -2,7 +2,6 @@ package service;
 
 import domain.Employee;
 import domain.Job;
-import org.springframework.beans.factory.annotation.Autowired;
 import utils.exceptions.DataBlockedException;
 
 /**
@@ -23,5 +22,6 @@ public class WorkService {
             throw new DataBlockedException("This job is allready assigned to employee");
         }
         jobService.update(jobForEmployee);
+
     }
 }

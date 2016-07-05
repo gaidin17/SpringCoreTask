@@ -3,6 +3,7 @@ package dao.impl.hibernateimpl;
 import dao.interfaces.EventDAO;
 import domain.Event;
 import org.springframework.transaction.annotation.Transactional;
+import utils.exceptions.DataBlockedException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -29,7 +30,11 @@ public class EventDaoHibernateImpl implements EventDAO {
     @Transactional
     @Override
     public void create(Event event) {
-        em.persist(event);
+        try {
+            em.persist(event);
+        } catch (Exception ex) {
+            throw new DataBlockedException("This event is allready in database");
+        }
     }
 
     @Transactional

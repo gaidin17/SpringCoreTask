@@ -3,6 +3,7 @@ package utils;
 import org.springframework.web.multipart.MultipartFile;
 import service.EventService;
 import service.UserService;
+import utils.exceptions.DataBlockedException;
 import utils.parsers.JsonEventsParser;
 import utils.parsers.JsonUsersParser;
 

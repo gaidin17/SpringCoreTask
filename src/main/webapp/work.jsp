@@ -11,7 +11,7 @@
     <a href="${pageContext.request.contextPath}/allEmployees">all Employees</a></br></br>
     <a href="${pageContext.request.contextPath}/allJobs">all Jobs</a></br></br>
     <a href="${pageContext.request.contextPath}/allAvailableJobs">all available Jobs</a></br></br>
-
     <a href="${pageContext.request.contextPath}/addJob.jsp">add Jobs</a></br></br>
-    <a href="${pageContext.request.contextPath}/addEmployee.jsp">add Employee</a></br></br>
+    <a href="${pageContext.request.contextPath}/addEmployee.jsp">add Employee</a></br></br></br></br>
+    <a href="/EventCenter/">back to main page</a>
 </body>

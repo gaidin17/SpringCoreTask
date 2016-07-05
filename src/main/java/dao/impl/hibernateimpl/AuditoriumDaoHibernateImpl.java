@@ -2,6 +2,7 @@ package dao.impl.hibernateimpl;
 
 import dao.interfaces.AuditoriumDAO;
 import domain.Auditorium;
+import utils.exceptions.DataBlockedException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -21,7 +22,11 @@ public class AuditoriumDaoHibernateImpl implements AuditoriumDAO {
 
     @Override
     public void create(Auditorium auditorium) {
-        em.persist(auditorium);
+        try {
+            em.persist(auditorium);
+        } catch (Exception ex) {
+            throw new DataBlockedException("This auditorium is allready in database");
+        }
     }
 
     @Override

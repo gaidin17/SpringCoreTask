@@ -15,7 +15,7 @@ public class Employee {
 
     private String name;
 
-    @OneToMany(targetEntity = Job.class, mappedBy = "employee")
+    @OneToMany(targetEntity = Job.class, fetch = FetchType.EAGER, mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Job> jobs;
 
     public Employee() {

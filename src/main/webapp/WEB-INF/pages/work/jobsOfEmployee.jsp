@@ -14,6 +14,11 @@
 <c:choose>
     <c:when test="${jobs.size() > 0}">
         <table border="1">
+            <tr>
+                <td>Job Id</td>
+                <td>Description</td>
+                <td>deadline</td>
+            </tr>
         <c:forEach items="${jobs}" var="job">
             <tr>
                 <td>${job.getId()}</td>

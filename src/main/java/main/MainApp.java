@@ -44,9 +44,9 @@ public class MainApp {
         MainApp mainApp = (MainApp) ctx.getBean("mainApp");
         mainApp.showAllAuditoriums();
         User user1 = ((UserService) ctx.getBean("userService")).getById(2);
-        User user3 = ((UserService) ctx.getBean("userService")).getUserByEmail("Ashlee@gmail.com");
+        User user3 = ((UserService) ctx.getBean("userService")).getUserByEmail("Ashlee1@gmail.com");
         User user2 = (User) ctx.getBean("user2");
-        mainApp.remove(user3);
+        mainApp.showAllUsers();
 
     }
 

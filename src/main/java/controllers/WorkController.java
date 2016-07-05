@@ -51,7 +51,7 @@ public class WorkController {
     public ModelAndView getEmployeeJobs(@PathVariable("empId") String empId) {
         ModelAndView model = new ModelAndView();
         Employee employee = employeeService.getById(Integer.parseInt(empId));
-        List<Job> jobs = jobService.getJobsByEmployeeId(employee);
+        List<Job> jobs = employee.getJobs();
         model.addObject("employee", employee);
         model.addObject("jobs", jobs);
         model.setViewName("work/jobsOfEmployee");
