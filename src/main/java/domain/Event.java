@@ -2,6 +2,7 @@ package domain;
 
 import domain.enums.Rating;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -10,21 +11,41 @@ import java.util.List;
 /**
  * Created by Evgeny_Akulenko on 6/20/2016.
  */
+@Entity(name = "events")
 public class Event {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(unique = true)
     private String name;
-    private LocalDate date;
-    private LocalTime time;
+
+    private String date;
+
+    private String time;
+
+    @Column(name = "baseprice")
     private Double basePrice;
+
+    @Enumerated(EnumType.STRING)
     private Rating rating;
+
+    @Transient
     private List<Ticket> tickets;
+
+    @ManyToOne
+    @JoinColumn(name = "auditoriumid")
     private Auditorium auditorium;
+
+    public Event() {
+
+    }
 
     public Event(int id, String name, String date, String time, Double basePrice, Rating rating, Auditorium auditorium) {
         this.id = id;
         this.name = name;
-        this.date = LocalDate.parse(date);
-        this.time = LocalTime.parse(time);
+        this.date = date;
+        this.time = time;
         this.basePrice = basePrice;
         this.rating = rating;
         if (auditorium != null) {
@@ -54,19 +75,19 @@ public class Event {
     }
 
     public LocalDate getDate() {
-        return date;
+        return LocalDate.parse(date);
     }
 
     public void setDate(LocalDate date) {
-        this.date = date;
+        this.date = date.toString();
     }
 
     public LocalTime getTime() {
-        return time;
+        return LocalTime.parse(time);
     }
 
     public void setTime(LocalTime time) {
-        this.time = time;
+        this.time = time.toString();
     }
 
     public Double getBasePrice() {

@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:util="http://www.springframework.org/schema/util"
-       xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:c="http://www.springframework.org/schema/c"
+
        xsi:schemaLocation="
  		http://www.springframework.org/schema/beans
- 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
- 		http://www.springframework.org/schema/util
- 		http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+ 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
     <bean id="userDao" class="dao.impl.UserDaoImpl">
         <constructor-arg>
@@ -43,7 +39,7 @@
         </constructor-arg>
     </bean>
 
-    <bean id="userDaoDb" class="dao.impl.dbimpl.UserDaoDbImpl" >
+    <bean id="userDaoDb" class="dao.impl.dbimpl.UserDaoDbImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 
@@ -56,6 +52,13 @@
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 
+    <bean id="auditoriumDaoHibernate" class="dao.impl.hibernateimpl.AuditoriumDaoHibernateImpl"/>
 
+    <bean id="eventDaoHibernate" class="dao.impl.hibernateimpl.EventDaoHibernateImpl"/>
 
+    <bean id="userDaoHibernate" class="dao.impl.hibernateimpl.UserDaoHibernateImpl"/>
+
+    <bean id="employeeDaoHibernate" class="dao.impl.hibernateimpl.EmployeeDaoHibernateImpl"/>
+
+    <bean id="jobDaoHibernate" class="dao.impl.hibernateimpl.JobDaoHibernateImpl"/>
 </beans>

@@ -1,5 +1,6 @@
 package domain;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,29 +8,41 @@ import java.util.List;
 /**
  * Created by Evgeny_Akulenko on 6/20/2016.
  */
+@Entity(name = "users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
+
+    @Column(unique = true)
     private String email;
-    private LocalDate birthDate;
-    private List<Ticket> tickets;
+
+    @Column(name = "birthdate")
+    private String birthDate;
+
+    @Transient
+    private List<Ticket> tickets = new ArrayList<>();
+
     public User() {
 
     }
+
     public User(int id, String name, String email, String birthDate) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.birthDate = LocalDate.parse(birthDate);
+        this.birthDate = birthDate;
         this.tickets = new ArrayList<>();
     }
 
     public LocalDate getBirthDate() {
-        return birthDate;
+        return LocalDate.parse(birthDate);
     }
 
     public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
+        this.birthDate = birthDate.toString();
     }
 
     public int getId() {

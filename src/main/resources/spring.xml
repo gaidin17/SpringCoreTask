@@ -24,6 +24,7 @@
     <import resource="properties.xml"/>
     <import resource="utilites.xml"/>
     <import resource="viewResolvers.xml"/>
+    <import resource="hibernate.xml"/>
 
     <bean id="mainApp" class="main.MainApp">
         <property name="userService" ref="userService"/>
@@ -37,6 +38,10 @@
     <bean id="event" class="domain.Event" scope="prototype"/>
 
     <bean id="auditorium" class="domain.Auditorium" scope="prototype"/>
+
+    <bean id="employee" class="domain.Employee" scope="prototype"/>
+
+    <bean id="job" class="domain.Job" scope="prototype"/>
 
 </beans>
 
